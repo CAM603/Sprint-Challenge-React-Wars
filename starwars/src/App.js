@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import PeopleList from './components/PeopleList';
 
 
 // Import styles
@@ -16,19 +17,29 @@ const App = () => {
   // sync up with, if any.
   useEffect(() => {
     axios
-    .get(`https://swapi.co/api/people/`)
+    .get(`https://swapi.co/api/people/?page=${page}`)
     .then(response => {
-      console.log(response)
+      setPeople(response.data.results);
     })
     .catch(error => {
       console.log(error)
   });
 
-}, []);
+}, [page]);
+
+  // Function to change page of people
+  const changePage = () => {
+    setPage(page => page + 1)
+  }
 
   return (
     <div className="App">
       <h1 className="Header">React Wars</h1>
+
+      <PeopleList
+      people={people}
+      changePage={changePage}
+      />
     </div>
   );
 }
