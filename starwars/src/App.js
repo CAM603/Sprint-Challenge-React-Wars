@@ -29,10 +29,10 @@ const App = () => {
 }, [page]);
 
   // Function to change page of people
-  const changePage = () => {
+  const nextPage = () => {
     setPage(page => page + 1)
   }
-  const changePage2 = () => {
+  const previousPage = () => {
     if (page > 1) {
       setPage(page => page - 1)
     } else {
@@ -43,11 +43,10 @@ const App = () => {
   return (
     <div className="App">
       <h1 className="Header">React Wars</h1>
-
       <PeopleList
       people={people}
-      changePage={changePage}
-      changePage2={changePage2}
+      nextPage={nextPage}
+      previousPage={previousPage}
       />
     </div>
   );

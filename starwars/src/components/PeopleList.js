@@ -1,30 +1,48 @@
 import React from "react";
 import PersonCard from "./PersonCard"
+// Styles
+import {ButtonGroup, Button, CardBody} from "reactstrap";
+import styled from 'styled-components';
+import './StarWars.css';
+
+const MyCardBody = styled.div`
+    min-height: 1px;
+    padding: 1.25rem;
+    width: 400px;
+    
+`;
 
 const PeopleList = props => {
-    const { changePage, changePage2, people } = props;
+    const { nextPage, previousPage, people } = props;
     
-    const handleChange = () => {
-        changePage()
+    const handleNextPage = () => {
+        nextPage()
     }
-    const handleChange2 = () => {
-        changePage2()
+    const handlePreviousPage = () => {
+        previousPage()
     }
     return (
-        <div>
-            <button onClick={handleChange2}>Previous</button>
-            <button onClick={handleChange}>Next</button>
+        <>
+            <ButtonGroup>
+                <Button color="danger" onClick={handlePreviousPage}>Back</Button>
+                <Button color="primary" onClick={handleNextPage}>Next</Button>
+            </ButtonGroup>
+        <div className="cardContainer">
+        <MyCardBody>
 
             {people.map((personObj, index) => {
                 return <PersonCard key={index}
                 name={personObj.name}
                 birthday={personObj.birth_year}
                 films={personObj.films.length}
+                gender={personObj.gender}
+                starships={personObj.starships.length}
+                vehicles={personObj.vehicles.length}
                 />
             })}
-            
-            
+        </MyCardBody>
         </div>
+        </>
     )
 }
 
