@@ -1,12 +1,13 @@
-import React from 'react';
+import React, { useState, useEffect }from 'react';
 
 //Styles
 import { Card, CardHeader, CardBody, CardText } from 'reactstrap';
 
 
 const PersonCard = props => {
-    const { name, birthday, films, gender, starships, vehicles, species } = props;
     
+    const { name, birthday, films, gender, starships, vehicles } = props;
+
     return (
         <>
         <br/>
