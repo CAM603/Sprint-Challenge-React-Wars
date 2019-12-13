@@ -9,6 +9,8 @@ import './App.css';
 const App = () => {
   const [page, setPage] = useState(1);
   const [people, setPeople] = useState([]);
+  const [species, setSpecies] = useState();
+  
   // Try to think through what state you'll need for this app before starting. Then build out
   // the state properties here.
 
@@ -19,8 +21,17 @@ const App = () => {
     axios
     .get(`https://swapi.co/api/people/?page=${page}`)
     .then(response => {
+      console.log(response.data.results)
       setPeople(response.data.results);
-      console.log(response.data)
+      response.data.results.map(obj => {
+        axios.get(obj.species)
+        .then(response => {
+          setSpecies(response.data.name)
+        })
+        .catch(error => {
+          console.log(error)
+        })
+      })
     })
     .catch(error => {
       console.log(error)
@@ -39,11 +50,12 @@ const App = () => {
       alert('You are on the first page')
     }
   }
-
+  
   return (
     <div className="App">
       <h1 className="Header">React Wars</h1>
       <PeopleList
+      species={species}
       people={people}
       nextPage={nextPage}
       previousPage={previousPage}

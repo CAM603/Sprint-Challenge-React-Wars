@@ -5,12 +5,12 @@ import { Card, CardHeader, CardBody, CardText } from 'reactstrap';
 
 
 const PersonCard = props => {
-    const { name, birthday, films, gender, starships, vehicles } = props;
-
+    const { name, birthday, films, gender, starships, vehicles, species } = props;
+    
     return (
         <>
         <br/>
-            <Card>
+            <Card inverse color="secondary">
             <CardHeader>{name}</CardHeader>
             <CardBody>
                 <CardText>Birthday: {birthday}</CardText>

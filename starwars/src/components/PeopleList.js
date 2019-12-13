@@ -1,7 +1,7 @@
 import React from "react";
 import PersonCard from "./PersonCard"
 // Styles
-import {ButtonGroup, Button, CardBody} from "reactstrap";
+import {ButtonGroup, Button } from "reactstrap";
 import styled from 'styled-components';
 import './StarWars.css';
 
@@ -13,7 +13,7 @@ const MyCardBody = styled.div`
 `;
 
 const PeopleList = props => {
-    const { nextPage, previousPage, people } = props;
+    const { nextPage, previousPage, people, species } = props;
     
     const handleNextPage = () => {
         nextPage()
@@ -21,6 +21,8 @@ const PeopleList = props => {
     const handlePreviousPage = () => {
         previousPage()
     }
+
+    console.log(species)
     return (
         <>
             <ButtonGroup>
@@ -31,7 +33,10 @@ const PeopleList = props => {
         <MyCardBody>
             
             {people.map((personObj, index) => {
-                return <PersonCard key={index}
+                
+                return <PersonCard 
+                key={index}
+                species={species}
                 name={personObj.name}
                 birthday={personObj.birth_year}
                 films={personObj.films.length}
