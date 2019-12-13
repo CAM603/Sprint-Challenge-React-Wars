@@ -20,6 +20,7 @@ const App = () => {
     .get(`https://swapi.co/api/people/?page=${page}`)
     .then(response => {
       setPeople(response.data.results);
+      console.log(response.data)
     })
     .catch(error => {
       console.log(error)
@@ -31,6 +32,13 @@ const App = () => {
   const changePage = () => {
     setPage(page => page + 1)
   }
+  const changePage2 = () => {
+    if (page > 1) {
+      setPage(page => page - 1)
+    } else {
+      alert('You are on the first page')
+    }
+  }
 
   return (
     <div className="App">
@@ -39,6 +47,7 @@ const App = () => {
       <PeopleList
       people={people}
       changePage={changePage}
+      changePage2={changePage2}
       />
     </div>
   );
