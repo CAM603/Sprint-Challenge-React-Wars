@@ -9,6 +9,7 @@ const PersonCard = props => {
 
     return (
         <>
+        <br/>
             <Card>
             <CardHeader>{name}</CardHeader>
             <CardBody>
@@ -19,7 +20,7 @@ const PersonCard = props => {
                 <CardText>Vehicles: {vehicles}</CardText>
             </CardBody>
             </Card>
-            
+        <br/>
         </>
     )
 }

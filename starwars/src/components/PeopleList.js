@@ -29,7 +29,7 @@ const PeopleList = props => {
             </ButtonGroup>
         <div className="cardContainer">
         <MyCardBody>
-
+            
             {people.map((personObj, index) => {
                 return <PersonCard key={index}
                 name={personObj.name}
@@ -40,6 +40,7 @@ const PeopleList = props => {
                 vehicles={personObj.vehicles.length}
                 />
             })}
+            
         </MyCardBody>
         </div>
         </>
