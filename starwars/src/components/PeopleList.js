@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import PersonCard from "./PersonCard";
-import axios from "axios";
+
 // Styles
 import {ButtonGroup, Button } from "reactstrap";
 import styled from 'styled-components';
@@ -16,6 +16,7 @@ const MyCardBody = styled.div`
 const PeopleList = props => {
     const { nextPage, previousPage, people } = props;
 
+    
     const handleNextPage = () => {
         nextPage()
     }
@@ -26,7 +27,8 @@ const PeopleList = props => {
     const arr = people.map(person => {
         return person.species[0]
     })
-
+    
+    console.log(arr)
 
     return (
         <>
@@ -38,11 +40,10 @@ const PeopleList = props => {
         <MyCardBody>
             
             {people.map((personObj, index) => {
-                let species = personObj.species[0]
                 
                 return <PersonCard
+                species={personObj.species}
                 key={index}
-                species={species}
                 name={personObj.name}
                 birthday={personObj.birth_year}
                 films={personObj.films.length}

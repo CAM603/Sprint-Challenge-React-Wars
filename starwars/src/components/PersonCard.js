@@ -1,4 +1,5 @@
-import React, { useState, useEffect }from 'react';
+import React from 'react';
+import axios from 'axios';
 
 //Styles
 import { Card, CardHeader, CardBody, CardText } from 'reactstrap';
@@ -6,8 +7,9 @@ import { Card, CardHeader, CardBody, CardText } from 'reactstrap';
 
 const PersonCard = props => {
     
-    const { name, birthday, films, gender, starships, vehicles } = props;
-
+    const { name, birthday, films, gender, starships, vehicles, species } = props;
+    
+    console.log(species)
     return (
         <>
         <br/>

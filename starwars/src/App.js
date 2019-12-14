@@ -26,11 +26,9 @@ const App = () => {
     })
     .catch(error => {
       console.log(error)
-  });
-
-}, [page]);
-
-
+    });
+  }, [page]);
+  
   // Function to change page of people
   const nextPage = () => {
     setPage(page => page + 1)
