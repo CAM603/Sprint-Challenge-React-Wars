@@ -1,12 +1,15 @@
 import React from 'react';
+import axios from 'axios';
 
 //Styles
 import { Card, CardHeader, CardBody, CardText } from 'reactstrap';
 
 
 const PersonCard = props => {
+    
     const { name, birthday, films, gender, starships, vehicles, species } = props;
     
+    console.log(species)
     return (
         <>
         <br/>

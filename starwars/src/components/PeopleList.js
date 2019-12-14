@@ -1,5 +1,6 @@
 import React from "react";
-import PersonCard from "./PersonCard"
+import PersonCard from "./PersonCard";
+
 // Styles
 import {ButtonGroup, Button } from "reactstrap";
 import styled from 'styled-components';
@@ -13,7 +14,8 @@ const MyCardBody = styled.div`
 `;
 
 const PeopleList = props => {
-    const { nextPage, previousPage, people, species } = props;
+    const { nextPage, previousPage, people } = props;
+
     
     const handleNextPage = () => {
         nextPage()
@@ -21,8 +23,8 @@ const PeopleList = props => {
     const handlePreviousPage = () => {
         previousPage()
     }
+    
 
-    console.log(species)
     return (
         <>
             <ButtonGroup>
@@ -34,9 +36,9 @@ const PeopleList = props => {
             
             {people.map((personObj, index) => {
                 
-                return <PersonCard 
+                return <PersonCard
+                species={personObj.species}
                 key={index}
-                species={species}
                 name={personObj.name}
                 birthday={personObj.birth_year}
                 films={personObj.films.length}
