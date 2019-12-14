@@ -24,11 +24,6 @@ const PeopleList = props => {
         previousPage()
     }
     
-    const arr = people.map(person => {
-        return person.species[0]
-    })
-    
-    console.log(arr)
 
     return (
         <>
